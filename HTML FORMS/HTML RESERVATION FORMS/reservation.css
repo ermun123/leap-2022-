@@ -1,0 +1,29 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form {
+  box-shadow: 0px 0px 10px black;
+  width: 400px;
+  height: 550px;
+  background: #ccc;
+}
+form {
+  padding-left: 10px;
+}
+
+.inputs {
+  color: grey;
+}
+option {
+  color: grey;
+}
+.btn {
+  border: 1px solid black;
+  margin-top: 5px;
+}
