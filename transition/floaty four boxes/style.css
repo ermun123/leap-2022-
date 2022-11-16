@@ -1,0 +1,97 @@
+.container{
+    width: 500px;
+    height: 500px;
+    border: 1px black solid;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%) ;
+}
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    opacity: 0.5;
+    position: absolute;
+    z-index: 5;
+    transition: 1s;
+}
+.box1{
+    left: 145px;
+    top: 140px;
+}
+.box2{
+    left: 265px;
+    top: 140px;
+}
+.box3{  
+    left: 145px;
+    top: 260px;
+}
+.box4{
+    top: 260px;
+    left: 265px;
+}
+.white{
+    width: 100px;
+    height: 100px;
+    box-shadow: 0 0 10px 0.01px  rgb(70, 70, 70);
+    z-index: 1;
+}
+.white1{
+    position:absolute;
+    left:145px;
+    top: 140px;
+}
+.white2{
+    position:absolute;
+    left: 265px;
+    top: 140px;
+}
+.white3{
+    position:absolute;
+    top: 260px;
+    left: 145px;
+}
+.white4{
+    position:absolute;
+    top: 260px;
+    left: 265px;
+}
+.container:hover .box{
+    opacity: 100%;
+}
+.container:hover .box1{
+    left: 0;
+    top: 0;
+}
+.container:hover .box2{
+    right: 0;
+    left: 400px;
+    top: 0;
+    bottom: 400px;
+}
+.container:hover .box3{
+    left: 0;
+    bottom: 0;
+    top: 400px;
+    right: 400px;
+}
+.container:hover .box4{
+    right: 0;
+    bottom: 0;
+    left: 400px;
+    top: 400px;
+}
+h1{
+    background-color: pink;
+    width: 60%;
+    text-align: center;
+    color: white;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 50px;
+    transform: translate(30%,20%);
+}
+span{
+    color: greenyellow;
+}
