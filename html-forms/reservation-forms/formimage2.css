@@ -1,0 +1,91 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.header{
+    background-color:pink;
+    color: white;
+    font-size: 12px;
+    width: 700px;
+    height: 50px;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    justify-content: center ;
+    margin-bottom: 20px;
+}
+.container{
+    max-width: 100%;
+    margin: 0;
+    padding-top: 10px;
+}
+.form{
+    background-color: rgb(195, 228, 228);
+    border: 3px dashed brown;
+    width: 700px;
+}
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+}
+fieldset{
+    width: 90%;
+    height: 150px;
+    margin: 0 auto;
+}
+legend{
+    text-align: center;
+}
+.labels{
+    display: flex;
+    justify-content: center ;
+    padding-top: 10px;
+}
+.member{
+    display: flex; 
+    justify-content: center;
+    padding-top: 10px;
+}
+.member input:last-child{
+    margin-left: 10px;
+}
+#name{
+    margin-left: 7px;
+}
+.email{
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+.date{
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+}
+.time{
+    margin-left: 5px;
+}
+.checkbox{
+    display: flex;
+    justify-content: center;
+    padding-top: 5px;
+}
+.box{
+    margin-right: 5px;
+}
+button{
+    background-color: rgb(237, 235, 235);
+    padding: 1px;
+}
+.btn{
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    padding-bottom: 10px;
+}
+.garchig{
+    color: red;
+}

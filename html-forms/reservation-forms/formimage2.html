@@ -1,0 +1,108 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="formimage2.css">
+        <title>RESERVATION FORM</title>
+    </head>
+    <body>
+        <H1 class="garchig">FORM 1</H1>
+        <div>
+            <form action="/HTML FORM/HTML RESERVATION FORMS/reservation.html" method="get">
+                <h1>Travel reservation forms</h1>
+                <h2>* denotes Mandotory</h2>
+                <label>
+                    Full name*:
+                    <br>
+                    <input type="text" placeholder="FirstName LastName" class="inputs">
+                    <br>
+                    Email address*:
+                    <br>
+                    <input type="text" placeholder="EMAIL_ADDRESS" class="inputs">
+                    <br>
+                    <label for="package">Select Tour Package*:</label>
+                    <br>
+                    <select>
+                        <option value="Goa">Goa</option>
+                        <option value="example">example1</option>
+                        <option value="example">example2</option>
+                    </select>
+                    <br>
+                    Arrival Date*:
+                    <br>
+                    <input type="date" placeholder="m/d/y" class="inputs">
+                    <br>
+                    Number of Persons*:
+                    <br>
+                    <input type="number" placeholder="UNKNOWN TYPE" class="inputs">
+                    <br>
+                    What would you want to avail?*
+                    <br>
+                    Boarding <input type="checkbox">
+                    <br>
+                    Fooding <input type="checkbox">
+                    <br>
+                    Sight seeing <input type="checkbox">
+                    <br>
+                    Discount Coupon code:
+                    <br>
+                    <input type="number" placeholder="UNKNOWN TYPE" class="inputs">
+                    <br>
+                    Terms & Conditions*
+                    <br>
+                    <input type="radio" name="terms" id="agree"><label for="agree">I agree</label>
+                    <input type="radio" name="terms" id="disagree"> <label for="disagree">I disagree</label>
+                    <br>
+                    <button type="submit">Complete Reservation</button>
+                </label>
+            </form>
+        </div>
+        <div class="container">
+            <h1 class="garchig">FORM 2</h1>
+            <div class="header">
+                <h1>Welcome to the 24x7 Fitness Club : Courts Reservation Page!!</h1>
+            </div>
+            <div>
+                <form action="formimage2.html" method="get" class="form">
+                    <fieldset>
+                        <legend>Member Demographics</legend>
+                        <label for="name" class="labels"> Name
+                            <input type="text" id="name">
+                        </label>
+                        <label class="labels">
+                            Are you a Member?   
+                        </label>
+                         <div class="member">
+                            <input type="radio" name="non">Member
+                            <input type="radio" name="non">Non-member
+                         </div>
+                         <div class="email">
+                            Email <input type="text" id="name">
+                         </div>
+                    </fieldset>
+                    <label for="facility" class="labels">
+                        Facility
+                        <select name="facility">
+                            <option value="Badminton">Badminton</option>
+                            <option value="Cardio">Cardio</option>
+                            <option value="Powerlift">Powerlift</option>
+                        </select>
+                    </label>
+                    <label class="labels">
+                        Select a reservation date and time:
+                    </label>
+                    <div class="date">
+                        <input type="date">
+                        <input type="time" class="time">
+                    </div>
+                    <div class="checkbox">
+                        <input type="checkbox" class="box" >I agree to the club's reservation policy
+                    </div>
+                    <div class="btn">
+                        <button type="submit">
+                            SUBMIT
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
