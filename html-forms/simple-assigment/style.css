@@ -1,0 +1,23 @@
+fieldset{
+    border-radius: 10px;
+    margin: 0 auto;
+    margin-top: 10%;
+    text-align: center;
+    width: 400px;
+    height: auto;
+}
+input{
+    width: 200px    ;
+}
+#message{
+    width: 200px;
+    height: 100px;
+    margin-top: 20px;
+}
+.message{
+    margin-left: -15px;
+}
+button{
+    margin-top: 20px;
+    margin-left: -15px;
+}
