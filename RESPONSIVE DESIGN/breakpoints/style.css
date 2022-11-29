@@ -2,19 +2,25 @@
     height: 100vh;
     position: relative;
     background-color: aqua;
+    padding-top: 250px;
 }
-p{
-    display: flex;
+span{
+    display: block;
     align-items: center;
     justify-content: center;
     font-size: 30px;
     color: black;
-    position: relative;
-    top: 400px;
+    text-align: center;
+}
+.xxl{
+    display: none;
 }
 @media (max-width: 1400px){
     .container{
         background-color: green;
+    }
+    .xxl{
+        display: block;
     }
 }
 @media (max-width: 1200px){
