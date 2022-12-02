@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <SCRIPT>
+        const random = Math.floor(Math.random()*100)+1;
+        console.log(random);
+        let number = 0 ;
+       
+        while(number !== random) {
+            number =  Number(prompt('1 - ees 100 hurtel toogoo taagaarai'));
+            if(random > number){
+                console.log('baga baina');
+            } 
+            if(number > random){
+                console.log('ih baina');
+            }
+        }
+        if(number == random){
+         console.log('olchloo')
+        }
+        
+    </SCRIPT>
+</body>
+</html>
