@@ -15,7 +15,28 @@
         for (let i = 0; i < too.length; i++) {
             sum += too[i];
         }
-        console.log(sum)
+        console.log(`Toonuudiin niilber ${sum}`)
+        let max = too[0]
+        for (a = 0; a < too.length; a++)
+            if (too[a] > max)
+                max = too[a];
+        console.log(`hamgiin ih too ni ${max}`)
+
+        let min = too[0]
+        for (b = 0; b < too.length; b++)
+            if (too[b] < min)
+                min = too[b]
+        console.log(`hamgiin baga too ni ${min}`)
+        for (let c = too.length - 1; c >= 0; c--) {
+            too[c + 1] = too[c]
+        }
+        too[0] = 100;
+        console.log(too);
+        for (let d = too.length + 1; d <= 12; d++) {
+            too[d + 1] = too[d]
+        }
+        too[12] = 200;
+        console.log(too)
     </script>
 </body>
 
