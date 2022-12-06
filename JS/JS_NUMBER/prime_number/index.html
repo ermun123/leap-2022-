@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number</title>
+</head>
+
+<body>
+    <script>
+        let p = prompt("Ta anhnii toog shalgah toogoo oruulna uu");
+        let n = Number(p);
+        let isPrime = true;
+
+        if (p === 2) {
+            console.log(`${p} ni tanii oruuulsan too anhii too mun baina `);
+        } else {
+            let i = 2;
+            while (i < n) {
+                if (n % i === 0) {
+                    isPrime = false;
+                    break;
+                }
+                i = i + 1;
+            }
+            if (isPrime) {
+                console.log(`${n} ni tanii oruulsan too anhii too mun baina `);
+            } else {
+                console.log(`${n} ni tanii oruulsan too anhnii too bish baina `);
+            }
+
+        }
+    </script>
+</body>
+
+</html>
