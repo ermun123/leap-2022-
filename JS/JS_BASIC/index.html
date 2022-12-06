@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS BASIC</title>
+</head>
+
+<body>
+    <script>
+        // 1 .  neg murtei code 
+        // Comments can make code readable
+        // 2. ner murte comment bolgoh
+        // Javascript lesson begin
+        // 3.Olon murtei comment bolgoh
+        // Comments
+        //         can
+        //             make
+        //                 Code
+        //                     Readeble
+        // 4.Variable.js нэртэй файл үүсгэх, number, string, boolean, undefined, null зэрэг утгуудыг өгөх 
+        let variable = 120;
+        const a = Boolean(variable)
+        const c = Number(variable)
+        const g = String(variable)
+        // 5. Datatypes.js нэртэй файл үүсгэх, typeof ашиглан өөр, өөр, төрлийн утгуудыг шалгах, number, string, boolean, undefined, null гэх мэт 
+        let messsage = 120;
+        console.log(typeof (messsage));
+        messsage = false;
+        console.log(typeof (messsage));
+        messsage = "Hi";
+        console.log(typeof (messsage));
+        // 6. Утга оноогоогүй хувьсагч зарлах 
+        let x = '';
+        // 7. Утга оноосон хувьсагч зарлах 
+        let i = 1;
+        // 8. Олон мөрөнд First name, last name, marital status, country, age гэсэн нэртэй хувьсагч зарлах  
+        const firstName = 'Ermun';
+        const lastName = 'Oyunbayar';
+        let marital_status = 'martial status';
+        let country = 'Mongolia'
+        let age = '18';
+        // 9. Нэг мөрөнд First name, last name, marital status, country, age гэсэн нэртэй хувьсагч зарлах 
+        let firstname = 'ermun', lastname = 'oyunbayar', maritalstatus = 'haha'; mycountry = 'mongolia', age = '18'
+        // 10. Гурвалжингийн периметрийг олох 
+        let Aside = 10;
+        let Bside = 10;
+        let Cside = 10;
+        console.log(Aside + Bside + Cside)
+        // 11. Тойргийн талбайг олох 
+        let R = 10;
+        let pi = 3.14;
+        let S = pi * R ** 2;
+        console.log(S)
+        // 12. m = y2 - y1 / x2 - x1 хариуг олох 
+        let y2 = 20;
+        let y1 = 10;
+        let x2 = 20;
+        let x1 = 10;
+        let m = (y2 - y1) / (x2 - x1);
+        console.log(m)
+        // 13. 15 Gegabyte нь хэдэн биттэй тэнцүү вэ ?
+        let gb = 15;
+        let byte = gb * 2 ** 30;
+        console.log(byte)
+        // 14. 15 МB дата 3 секундэд манай интернэт онлайнаар татаж чаддаг бол түүнийг BIT Rate - ийг олно уу.
+        let mb = 15;
+        let bitrate = (mb * 2 ** 20) / 3;
+        console.log(bitrate);
+        // 15. side1, side2, side3 гэсэн хувьсагчдад гурвалжны гурван талыг онооно.Ийнхүү гурван тал өгөдсөн байхад үед гурвалжны талбайг ол.
+        // 16. Өгсөн тоог цельсээс фаренгейт рүү хөрвүүл.
+        const celcius = 0;
+        let f = (celcius * 1.8) + 32
+        console.log(f)
+        // 17. Өгсөн тоог фаренгейтээс цельс рүү хөрвүүл.
+        const fahrenheit = 122
+        let cel = (fahrenheit - 32) / 1.8
+        console.log(cel)
+        // 18. 2 хувьсагч зарлан 2 тоон утга өг.Тухайн 2 хувьсагчдаар Math - ийн 5н үйлдэлүүдийг(+-* /%) гүцэтгээд үр дүнг нь дараах байдлаар харуул:
+        let too1 = 15;
+        let too2 = 10;
+        let niilber = (too1 + too2)
+        let yalgavar = (too1 - too2)
+        let urjver = (too1 * too2)
+        let noogdovor = (too1 / too2)
+        let module = (too1 % too2)
+        console.log(niilber, yalgavar, urjver, noogdovor, module)
+        // 19. cm - г inch рүү хөрвүүлэх.inch - г cm рүү хөрвүүлэх
+        let cm = 254;
+        let inch = cm / 2.54;
+        console.log(inch);
+        // 20. Гараас дугуйн радиус буюу r орж ирэхэд тухайн дугуйн эзэлхүүнийг ол.Гараас дугуйн радиус буюу r, орж ирэхэд тухайн дугуйн хүрээний уртыг ол.
+        let r = 5
+        let volume = 4 / 3 * pi * r ** 3;
+        console.log(volume)
+        // 21. 3 оронтоо тооны хамгийн эхний цифрийг олох илэрхийлэл бич
+        let z = 543
+        let ehnii = Math.floor(z / 100)
+        console.log(ehnii)
+        // 22. Доорх Baby Shark дууны үгийг хамгийн ихдээ 12 хувьсагч ашиглан орлуулан бичээд console дээр дарааллуулан хэвлэж харуулна уу.
+
+        let dudu = 'doo-doo , doo-doo';
+        let baby = 'Baby Shark';
+        let mommy = 'Mommy Shark';
+        let daddy = 'Daddy Shark';
+        let grandma = 'Grandma Shark'
+        let grandpa = 'Grandpa Shark'
+        let hunt = 'Lets Go hunt'
+        let run = 'Run Away'
+        let safe = 'Safe at last '
+        let end = 'Its the end'
+        console.log(baby + ' , ' + dudu)
+        console.log(baby + ' , ' + dudu)
+        console.log(baby + ' , ' + dudu)
+        console.log(baby)
+        console.log(mommy + ' , ' + dudu)
+        console.log(mommy + ' , ' + dudu)
+        console.log(mommy + ' , ' + dudu)
+        console.log(mommy)
+        console.log(daddy + ' , ' + dudu)
+        console.log(daddy + ' , ' + dudu)
+        console.log(daddy + ' , ' + dudu)
+        console.log(daddy)
+        console.log(grandma + ' , ' + dudu)
+        console.log(grandma + ' , ' + dudu)
+        console.log(grandma + ' , ' + dudu)
+        console.log(grandma)
+        console.log(grandma + ' , ' + dudu)
+        console.log(grandpa + ' , ' + dudu)
+        console.log(grandpa + ' , ' + dudu)
+        console.log(grandpa)
+        console.log(hunt + ' , ' + dudu)
+        console.log(hunt + ' , ' + dudu)
+        console.log(hunt + ' , ' + dudu)
+        console.log(hunt)
+        console.log(run + ' , ' + dudu)
+        console.log(run + ' , ' + dudu)
+        console.log(run + ' , ' + dudu)
+        console.log(run + ' (ah!)')
+        console.log(safe + ' , ' + dudu)
+        console.log(safe + ' , ' + dudu)
+        console.log(safe + ' , ' + dudu)
+        console.log(safe + '(phew)')
+        console.log(end + ',' + dudu)
+        console.log(end + ',' + dudu)
+        console.log(end + ',' + dudu)
+        console.log(end)
+
+
+
+
+    </script>
+    <script src="variable.js"></script>
+</body>
+
+</html>
