@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>simple 1 </title>
+</head>
+
+<body>
+    <script>
+        let array = ["Facebook", "Google", "Microsoft", "Apple", "IBM", "Oracle", "Amazon"]
+        let n = 'google';
+        function simple(array, companyToRemove) {
+            array.sort()
+            array.reverse()
+            array.slice(1)
+            array.splice(3, 1)
+            array.pop()
+            array.splice(0, 5)
+        }
+        simple(array, 'google')
+        console.log(`1. ${array}`)
+        console.log(`2. ${array.sort()}`)
+        console.log(`3.${array.reverse()}`)
+        console.log(`4.${array.slice(1)}`)
+        console.log(`5. ${array}`)
+        console.log(`6.${array}`)
+
+
+    </script>
+</body>
+
+</html>
