@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students</title>
+</head>
+
+<body>
+    <script>
+        let students = [
+            {
+                name: 'Gonchig',
+                birthofyear: 1999,
+                single: false,
+                hobby: 'mori'
+
+            },
+            {
+                name: 'Baldan',
+                birthofyear: 1988,
+                single: true,
+                hobby: 'tennis'
+
+            },
+            {
+                name: 'Dorj',
+                birthofyear: 2001,
+                single: false,
+                hobby: 'video games'
+
+            },
+            {
+                name: 'Sumlai',
+                birthofyear: 1999,
+                single: true,
+                hobby: 'Seleh'
+
+            },
+            {
+                name: 'Dalai',
+                birthofyear: 1985,
+                single: false,
+                hobby: 'cycling'
+
+            },
+            {
+                name: 'Tengis',
+                birthofyear: 2000,
+                single: false,
+                hobby: 'hiking'
+
+            },
+            {
+                name: 'Dalai',
+                birthofyear: 1998,
+                single: true,
+                hobby: 'travel'
+
+            },
+            {
+                name: 'Miigaa',
+                birthofyear: 1995,
+                single: false,
+                hobby: 'karate'
+
+            },
+            {
+                name: 'Ulzii',
+                birthofyear: 1994,
+                single: false,
+                hobby: 'box'
+
+            },
+            {
+                name: 'Haagii',
+                birthofyear: 2003,
+                single: false,
+                hobby: 'kino'
+
+            },
+            {
+                name: 'Undral',
+                birthofyear: 2002,
+                single: true,
+                hobby: 'nom'
+
+            },
+            {
+                name: 'Bold',
+                birthofyear: 2004,
+                single: false,
+                hobby: 'sonin'
+
+            },
+            {
+                name: 'Amar',
+                birthofyear: 1996,
+                single: true,
+                hobby: 'billiard'
+
+            },
+            {
+                name: 'Jagaa',
+                birthofyear: 2003,
+                single: false,
+                hobby: 'hulbumbug'
+
+            },
+            {
+                name: 'Erhes',
+                birthofyear: 2002,
+                single: false,
+                hobby: 'Sags'
+
+            },
+        ]
+        function stundentsOverTwenties(list, year) {
+            let count = 0;
+            for (let i = 0; i < list.length; i++) {
+                if (list[i].birthofyear < year) {
+                    count++;
+                }
+            }
+            return count;
+        }
+        const overtwenty = stundentsOverTwenties(students, 2002)
+        console.log(` 20 oos deesh nastai humuusiin too ${overtwenty}`)
+
+        function getAges(list) {
+            return 2022 - list.birthofyear;
+        }
+        const student = getAges(students[0]);
+        console.log(`ehnii index iin suragchiin nas ni ${student}`)
+
+        function getSingleStudentsCount(list) {
+            let count = 0;
+            for (let i = 0; i < list.length; i++) {
+                if (list[i].single == true) {
+                    count++;
+                }
+            }
+            return count;
+        }
+        const singles = getSingleStudentsCount(students)
+        console.log(` niit single humuusiin too ${singles}`)
+    </script>
+</body>
+
+</html>
