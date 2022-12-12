@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acessing Objects</title>
+</head>
+
+<body>
+    <Script>
+        const students = [
+            {
+                name: 'Сэд-Эрдэнэ',
+                age: 19,
+                gender: 'male',
+            },
+            {
+                name: 'Индра',
+                age: 19,
+                gender: 'female',
+            },
+            {
+                name: 'Хатнаа ',
+                age: 21,
+                gender: 'male',
+            },
+            {
+                name: 'Тэмүүлэн',
+                age: 24,
+                gender: 'male',
+            },
+            {
+                name: 'Намуун',
+                age: 23,
+                gender: 'female',
+            },
+            {
+                name: 'Гэрэл',
+                age: 23,
+                gender: 'female',
+            },
+        ];
+        function gender_count(arr) {
+            const counts = { male: 0, female: 0 };
+            for (let i = 0; i < arr.length; i++) {
+                arr[i].gender === 'male' ? counts.male++ : counts.female++;
+            }
+
+            return counts;
+        };
+
+        const genders = gender_count(students);
+        console.log(genders);
+
+        function age_avarage(arr) {
+            let sum = 0;
+            for (let i = 0; i < arr.length; i++) {
+                sum += arr[i].age;
+            }
+
+            return sum / arr.length;
+        };
+        const ages = age_avarage(students)
+        console.log(ages)
+
+
+
+        const addLastName = (student, ovog) => {
+            student.ovog = ovog;
+        };
+
+        addLastName(students[0], 'Одгэрэл');
+        console.log(students[0]);
+
+    </Script>
+</body>
+
+</html>
