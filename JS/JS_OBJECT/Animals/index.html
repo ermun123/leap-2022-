@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animals</title>
+</head>
+
+<body>
+    <Script>
+        let animals = [{ type: "dog", sound: "woof" },
+        { type: "cow", sound: "moo" },
+        { type: "cat", sound: "meow" }]
+        function animalsound(animals) {
+            return `${animals.sound} ${animals.sound}`;
+        }
+        console.log((`what does the dog say ${animalsound(animals[0])}`));
+        console.log((`what does the cow say ${animalsound(animals[1])}`));
+        console.log((`what does the cat say ${animalsound(animals[2])}`));
+
+
+    </Script>
+</body>
+
+</html>
