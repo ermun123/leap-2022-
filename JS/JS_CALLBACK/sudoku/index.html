@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sudoku</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td {
+            border: 1px solid rgba(0, 0, 0, 0.5);
+            height: 20px;
+            width: 20px;
+            text-align: center;
+            line-height: 20px;
+        }
+
+        td:nth-child(3n) {
+            border-right: 2px solid #000;
+        }
+
+        tr:nth-child(3n) td {
+            border-bottom: 2px solid #000;
+        }
+
+        td.default {
+            color: #000;
+        }
+
+
+        body {
+            flex-direction: column;
+        }
+
+        td:not(.default) {
+            cursor: pointer;
+        }
+
+        td.active {
+            background-color: rgba(83, 104, 149, 0.5);
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+        }
+    </style>
+</head>
+
+<body>
+    <table id="tableTarget"></table>
+    <script src="sudoku.js"> </script>
+</body>
+
+</html>
