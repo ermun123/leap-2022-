@@ -8,7 +8,7 @@ const tileWidth = 50;
 const tileHeight = 50;
 const bodyColor = '#00ff00';
 const headColor = '#ff0000';
-const speed = 500;
+const speed = 400;
 
 
 function Tile({ x, y, isHead }) {
@@ -28,6 +28,34 @@ function App() {
     { x: 0, y: 1 },
     { x: 0, y: 0 },
   ]);
+  const [apple, setApple] = useState({ x: 9, y: 9 });
+
+  const generateApple  = () => {
+    let x = random(0, 9);
+    let y = random(0, 9);
+
+    while (addBody(x, y)) {
+        x = random(0, 9);
+        y = random(0, 9);
+    }
+
+    setApple({ x: x, y: y });
+};
+
+const addBody = (x, y) => {
+  for (let i = 0; i < snake.length; i++) {
+      if (snake[i].x === x && snake[i].y === y) return true;
+  }
+
+  return false;
+};
+
+const ifEaten = (x, y) => {
+  if (x === apple.x && y === apple.y) return true;
+  return false;
+};
+
+  const random = (max, min) => Math.floor(Math.random() * (max - min + 1)) + min;
 
   const changeDirection = (movingDir) => {
     const index = directions.findIndex((d) => d === movingDir);
@@ -40,21 +68,29 @@ function App() {
 
   };
   const moveDown = () => {
+    let isEaten = false;
     let newSnake = [...snake]
     newSnake = newSnake.map((item, index) => {
       if (index === 0) {
-        return { x: item.x, y: item.y + 1 };
+        if (ifEaten(item.x, item.y + 1)) {
+          generateApple();
+          isEaten = true;
+      }
+       if(item.y === yCells - 1 ) return {x: item.x ,y:0};
+       return { x: item.x, y: item.y + 1 };
       }
       return { x: newSnake[index - 1].x, y: newSnake[index - 1].y };
 
     });
-    setSnake(newSnake)
+    setSnake(newSnake);
 
   };
   const moveRight = () => {
     let newSnake = [...snake]
     newSnake = newSnake.map((item, index) => {
       if (index === 0) {
+        if (ifEaten(item.x + 1, item.y)) generateApple();
+        if(item.x === xCells - 1 ) return {x:0 ,y:item.y};
         return { x: item.x + 1, y: item.y };
       }
       return { x: newSnake[index - 1].x, y: newSnake[index - 1].y };
@@ -64,21 +100,36 @@ function App() {
 
   };
   const moveUp = () => {
+    let isEaten =false;
     let newSnake = [...snake]
     newSnake = newSnake.map((item, index) => {
       if (index === 0) {
+        if (ifEaten(item.x, item.y - 1)) {
+          generateApple();
+          isEaten = true;
+      }
+        if(item.y === 0 ) return {x:0, y:yCells-1 };
         return { x: item.x, y: item.y - 1 };
       }
       return { x: newSnake[index - 1].x, y: newSnake[index - 1].y };
 
     });
-    setSnake(newSnake)
+    if (isEaten) {
+      setSnake([...newSnake, { x: newSnake[newSnake.length - 1].x, y: newSnake[newSnake.length - 1].y + 1 }]);
+  } else {
+      setSnake(newSnake);
+  }
 
   };
   const moveLeft = () => {
     let newSnake = [...snake]
     newSnake = newSnake.map((item, index) => {
       if (index === 0) {
+        if (ifEaten(item.x, item.y - 1)) {
+          generateApple();
+          
+      }
+        if(item.x === 0 ) return {x:xCells-1 ,y:item.y};
         return { x: item.x - 1, y: item.y };
       }
       return { x: newSnake[index - 1].x, y: newSnake[index - 1].y };
@@ -134,12 +185,13 @@ function App() {
 
   return (
     <div className='wrapper' onKeyDown={handleKeyDown} tabIndex={0}>
-      <h1>SNAKE GAME</h1>
+      <h1 style={{backgroundColor:'coral', width:'280px', height:'40px', textAlign:'center', borderRadius:'50px'}}><span>🐍</span>SNAKE GAME</h1>
       <div className='board' style={{ width: xCells * tileWidth, height: yCells * tileHeight, }}>
         {snake.map((item, index) => {
           const isHead = index === 0;
           return <Tile x={item.x} y={item.y} isHead={isHead} key={`snake-tile-${index}`} />;
         })}
+        <div style={{ width: tileWidth, height: tileHeight, position: 'absolute',top: apple.y * tileWidth,left: apple.x * tileHeight,background: 'orange',    borderRadius:'50px'}}></div>
       </div>
     </div>
   );
