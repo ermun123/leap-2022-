@@ -1,6 +1,9 @@
 const express = require('express');
 const cors = require('cors');
+const bodyParser = require('body-parser')
+const jsonParser = bodyParser.json();
 const { response } = require('express');
+const fs = require('fs')
 
 const app = express();
 app.use(cors());
@@ -10,29 +13,6 @@ const port = 8000;
 
 
 
-const categories = [
-    {
-        id: "1",
-        name: 'Toyota',
-        categoryId: "t"
-    },
-    {
-        id: 2,
-        name: 'Mercedes Benz',
-        categoryId: "2"
-    },
-    {
-        id: 3,
-        name: 'BMW',
-        categoryId: "3"
-    },
-    {
-        id: 4,
-        name: 'Nissan',
-        categoryId: "4"
-    }
-
-];
 
 const articles = [
     {
@@ -91,21 +71,59 @@ const articles = [
         imageUrl: 'https://hips.hearstapps.com/hmg-prod/images/2020-bmwi8-mmp-1-1573836896.jpg?crop=0.736xw:0.824xh;0.0782xw,0.176xh&resize=640:*',
         text: 'You’ll work it hard to drive this car quickly, mind. Maximum torque – a fairly thin 151lb ft – doesn’t arrive until 6,400rpm, a mere handful of revs before you reach peak power. But so long as you keep things above 4,000rpm, the GT86 does feel usefully brisk. And its modest power matches modest grip, so quite often – particularly when it’s grimy and wintry – you won’t be wishing for more muscle.'
     },
+    {
+        id: 9,
+        name: 'XV70',
+        categoryId: "1",
+        imageUrl: 'https://avatars.mds.yandex.net/get-verba/787013/2a00000162e2615f12e4e78543461053674a/cattouchret',
+        text: 'You’ll work it hard to drive this car quickly, mind. Maximum torque – a fairly thin 151lb ft – doesn’t arrive until 6,400rpm, a mere handful of revs before you reach peak power. But so long as you keep things above 4,000rpm, the GT86 does feel usefully brisk. And its modest power matches modest grip, so quite often – particularly when it’s grimy and wintry – you won’t be wishing for more muscle.'
+    },
+    {
+        id: 10,
+        name: '350Z',
+        categoryId: "4",
+        imageUrl: 'https://www.topgear.com/sites/default/files/2022/12/TopGear%20-%20Exhaust%20-%20Nissan%20350Z%20-%20002.jpg',
+        text: 'You’ll work it hard to drive this car quickly, mind. Maximum torque – a fairly thin 151lb ft – doesn’t arrive until 6,400rpm, a mere handful of revs before you reach peak power. But so long as you keep things above 4,000rpm, the GT86 does feel usefully brisk. And its modest power matches modest grip, so quite often – particularly when it’s grimy and wintry – you won’t be wishing for more muscle.'
+    },
+    {
+        id: 11,
+        name: 'GT BLACK SERIES',
+        categoryId: "2",
+        imageUrl: 'https://www.motortrend.com/uploads/2022/02/2021-Mercedes-Benz-AMG-GT-Coupe-PVOTY22-53.jpg',
+        text: 'You’ll work it hard to drive this car quickly, mind. Maximum torque – a fairly thin 151lb ft – doesn’t arrive until 6,400rpm, a mere handful of revs before you reach peak power. But so long as you keep things above 4,000rpm, the GT86 does feel usefully brisk. And its modest power matches modest grip, so quite often – particularly when it’s grimy and wintry – you won’t be wishing for more muscle.'
+    },
+    {
+        id: 12,
+        name: '7 series',
+        categoryId: "3",
+        imageUrl: 'https://media.ed.edmunds-media.com/bmw/7-series/2021/oem/2021_bmw_7-series_sedan_745e-xdrive_fq_oem_1_1280.jpg',
+        text: 'You’ll work it hard to drive this car quickly, mind. Maximum torque – a fairly thin 151lb ft – doesn’t arrive until 6,400rpm, a mere handful of revs before you reach peak power. But so long as you keep things above 4,000rpm, the GT86 does feel usefully brisk. And its modest power matches modest grip, so quite often – particularly when it’s grimy and wintry – you won’t be wishing for more muscle.'
+    },
 
 
 
 ]
-app.get('/categories', (request, response) => {
-    response.status(200);
-    response.json(categories);
+
+// let categories = JSON.parse(fs.readFileSync('categoryData.json', 'utf8'));
+
+const updateCategoriesFile = () => {
+    fs.writeFileSync('categoryData.json', JSON.stringify(categories));
+}
+app.get('/categories', (req, res) => {
+    res.status(200);
+    res.json(categories);
 });
 app.get('/category/:id', (req, res) => {
     const { id } = req.params;
-    console.log(id)
-    const filteredArr = articles.filter((e) => {
-        return e.categoryId === id;
-    })
-    res.json(filteredArr)
+    let category = null;
+    for (const row of categories) {
+        if (id == row.id) {
+            category = row;
+            break;
+        }
+    }
+    res.json(categgory)
+
 })
 app.get('/articles', (req, res) => {
     res.status(200);
@@ -115,6 +133,61 @@ app.get('/articles/:id', (req, res) => {
     const { id } = req.params;
     res.json(articles[Number(id) - 1]);
 })
+app.delete('/categories/:id', (req, res) => {
+    const { id } = req.params;
+    categories = categories.filter((row) => row.id !== Number(id));
+    updateCategoriesFile();
+    res.json(id)
+})
+app.post('/categories', jsonParser, (req, res) => {
+    const { name } = req.body;
+    const newCategory = { id: newCatId++, name };
+    categories.push = newCategory;
+    updateCategoriesFile();
+    res.send(newCategory)
+})
+
+app.put('/categories/:id', (req, res) => {
+    const { id } = req.params;
+    const { name } = req.body;
+    updateCategoriesFile();
+    let updatedCat;
+    categories = categories.map((row) => {
+        if (row.id === Number(id)) {
+            updatedCat = { id: Number(id) }
+            return updatedCat;
+        }
+        return row;
+    })
+    res.json(updatedCat)
+
+})
+let products = JSON.parse(fs.readFileSync('MOCK_DATA.json', 'utf8'));
+app.get('/products', (req, res) => {
+
+    let { pageSize, page, priceTo, priceForm, q } = req.query;
+    pageSize = Number(pageSize) || 10;
+    page = Number(page) || 1;
+    let start, end;
+    start = (page - 1) * pageSize;
+    end = page * pageSize;
+    const items = products.slice(start, end);
+    const price = products.filter((item) => {
+        if (item.price <= 5000) {
+            return item
+        }
+    })
+    res.json({
+        total: products.length,
+        totalPages: Math.ceil(products.length / pageSize),
+        page,
+        pageSize,
+        items,
+    });
+
+});
+
+
 app.listen(port, () => {
     console.log('http://localhost:' + port)
 });

@@ -3,36 +3,17 @@ import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { useEffect } from 'react';
 
 export default function CategoryEdit({ afterEdit, category }) {
-    const [name, setName] = useState('category.name');
-    const [description, setDescription] = useState('category.description');
-    const navigate = useNavigate();
-
+    const [name, setName] = useState(category?.name);
+    const [description, setDescription] = useState('')
     const submit = () => {
-
-        let statusCode;
-        fetch('https://demo-api-one.vercel.app/api/categories', {
-            method: 'PATCH',
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: localStorage.getItem('token')
-            },
-            body: JSON.stringify({ id: category?.id, name, description }),
-        })
+        axios.put(`http://localhost:8000/categories/:id` + category.id, { name })
             .then((res) => {
-                statusCode = res.status;
-                return res.json();
-            }).then((data) => {
-                if (statusCode === 200) {
-                    toast.success('Added successfully');
-                    afterEdit(data.body);
-                } else {
-                    if (statusCode === 403 || statusCode === 401) {
-                        navigate('/signout')
-                    }
-                    toast.error(data.message);
-                }
+                toast.success('Edited successfully');
+                afterEdit(res.data);
             })
             .catch((err) => {
                 console.log(err);

@@ -8,17 +8,15 @@ const ListItem = ({ item, index, onEdit }) => {
   const [deleted, setDeleted] = useState(false);
   const navigate = useNavigate();
   const deleteItem = () => {
-    axios.delete('https://demo-api-one.vercel.app/api/categories', { data: { id: item.id } })
-      .then((res) => {
+    axios.delete('http://localhost:8000/categories/' + item.id)
+      .then(() => {
         toast.success('Deleted properly')
         setDeleted(true);
       })
       .catch((err) => {
-        if (err.response.status === 403 || err.response.status === 401) {
-          navigate('/signout')
-        }
+        console.log(err)
         toast.error(err.data.message);
-      })
+      });
   };
   if (deleted) return <></>
   return (

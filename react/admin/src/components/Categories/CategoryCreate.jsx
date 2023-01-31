@@ -8,20 +8,15 @@ import axios from 'axios';
 export default function CategoryCreate({ afterSubmit }) {
   const [name, setName] = useState('');
   const [description, setDescription] = useState('');
-  const navigate = useNavigate();
   const submit = () => {
-    axios.post('https://demo-api-one.vercel.app/api/categories', { name, description })
+    axios.post('http://localhost:8000/categories', { name })
       .then((res) => {
         toast.success('Added successfully');
-        afterSubmit(res.data.body);
+        afterSubmit(res.data);
       })
       .catch((err) => {
         console.log(err);
         toast.error('something working wrong')
-        if (err.response.data.body === 403 || err.response.data.body === 401) {
-          navigate('/signout')
-        }
-
       })
 
   };

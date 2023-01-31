@@ -15,29 +15,29 @@ import Signout from './pages/SignOut';
 
 
 export default function App() {
-  const [me, setMe] = useState(undefined);
+  // const [me, setMe] = useState(undefined);
 
   const [menuShow, setMenuShow] = useState(false);
 
 
 
-  useEffect(() => {
-    const myData = localStorage.getItem('me');
-    if (myData !== 'undefined') {
-      setMe(JSON.parse(myData));
-    }
-  }, []);
+  // useEffect(() => {
+  //   const myData = localStorage.getItem('me');
+  //   if (myData !== 'undefined') {
+  //     setMe(JSON.parse(myData));
+  //   }
+  // }, []);
 
-  if (!me) {
-    return (
-      <Routes>
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/signin/success" element={<SigninSuccess setMe={setMe} />} />
-        <Route path="/signup" element={<Singup />} />
-        <Route path="*" element={<SignInError />} />
-      </Routes>
-    );
-  }
+  // if (!me) {
+  //   return (
+  //     <Routes>
+  //       <Route path="/signin" element={<Signin />} />
+  //       <Route path="/signin/success" element={<SigninSuccess setMe={setMe} />} />
+  //       <Route path="/signup" element={<Singup />} />
+  //       <Route path="*" element={<SignInError />} />
+  //     </Routes>
+  //   );
+  // }
 
   return (
     <>
@@ -49,7 +49,7 @@ export default function App() {
             <Route path="/" element={<Home />} />
             <Route path='/categories' element={<Categories />} />
             <Route path="/articles" element={<Articles />} />
-            <Route path="/signout" element={<Signout setMe={setMe} />} />
+            {/* <Route path="/signout" element={<Signout setMe={setMe} />} /> */}
           </Routes>
         </div>
       </div>
