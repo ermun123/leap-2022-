@@ -5,7 +5,7 @@ import Article from './pages/Article';
 import ChatScreen from './pages/ChatScreen';
 import Home from './pages/Home';
 import Products from './pages/Products';
-
+import ListedProduct from './pages/ListedProduct';
 
 function App() {
   return (
@@ -16,6 +16,7 @@ function App() {
         <Route path="/articles/:id" element={<Article />} />
         <Route path="/category/:id" element={<SingleCategory />} />
         <Route path='/products' element={<Products />} />
+        <Route path='/ListedProduct' element={<ListedProduct />} />
       </Routes>
       {/* <ChatScreen /> */}
       {/* <Footer /> */}

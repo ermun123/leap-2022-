@@ -172,11 +172,6 @@ app.get('/products', (req, res) => {
     start = (page - 1) * pageSize;
     end = page * pageSize;
     const items = products.slice(start, end);
-    const price = products.filter((item) => {
-        if (item.price <= 5000) {
-            return item
-        }
-    })
     res.json({
         total: products.length,
         totalPages: Math.ceil(products.length / pageSize),
