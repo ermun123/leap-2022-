@@ -1,0 +1,49 @@
+.image-box {
+    display: flex;
+    flex-wrap: wrap;
+    width: 600px;
+    height: 600px;
+    background-color: aqua;
+    padding: 15px;
+    margin-left: 400px;
+    margin-top: 50px;
+  }
+
+
+  .image-box img {
+    width: 200px;
+    height: 200px;
+    top: 0;
+    left: 0;
+    transition: transform 0.5s, filter 0.5s;
+    filter: brightness(50%);
+  }
+
+.left-top:hover{
+    filter: brightness(100%);
+}
+.top:hover{
+    filter: brightness(100%);
+}
+.right-top:hover{
+    filter: brightness(100%);
+}
+.left-mid:hover{
+    filter: brightness(100%);
+}
+.mid:hover{
+    filter: brightness(100%);
+}
+.right-mid:hover{
+    filter: brightness(100%);
+}
+.left-bottom:hover{
+    filter: brightness(100%);
+}
+.bottom:hover{
+    filter: brightness(100%);
+}
+.right-bottom:hover{
+    filter: brightness(100%);
+}
+
